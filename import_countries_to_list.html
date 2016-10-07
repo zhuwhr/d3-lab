@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Assignment1</title>
+        <style>
+            h1 {
+                color: white;
+                background-color: black
+            }
+            ul {
+                list-style: none;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Gapiminder - Wealth and Health of Nations</h1>
+        <div id="viz">
+            <h2>Countries</h2>
+            <label>Name</label>
+            <input type = 'text' id = 'idea'/>
+
+            <hr>
+            <ul id = 'list'>
+                <li>USA</li>
+                <li>Mexico</li>
+                <li>Canada</li>
+            </ul>
+
+        </div>
+    </body>
+    
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    
+    <script>
+        var foo = d3.select("#viz");
+        foo.text("I really like D3!!!");
+        var myData = [1,2,3,4,5,6,7,8];
+        
+        d3.json("data.json", function(error, result){
+                myData = result;
+                render();
+        })
+        
+        function render() {
+            var changes = foo.selectAll("div")
+                .data(myData, function(f) {return f.name});
+            
+            changes.enter()
+                .append("div")
+                .text (function(f) {return f.name});
+            
+        }
+                
+    </script>
+    
+
+</html>

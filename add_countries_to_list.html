@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Assignment1</title>
+        <style>
+            h1 {
+                color: white;
+                background-color: black
+            }
+            ul {
+                list-style: none;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Gapiminder - Wealth and Health of Nations</h1>
+        <div>
+            <h2>Countries</h2>
+            <label>Name</label>
+            <input type = 'text' id = 'idea'/>
+            <button onclick="myFunction()" id="add">Add</button>
+            <hr>
+            <ul id = 'list'>
+                <li>USA</li>
+                <li>Mexico</li>
+                <li>Canada</li>
+            </ul>
+            <script>
+                function myFunction()
+                {
+                    var node = document.createElement("LI");
+                    var text = document.getElementById("idea").value;
+                    var textNode = document.createTextNode(text);
+                    node.appendChild(textNode);
+                    document.getElementById("list").appendChild(node);
+                }
+            </script>
+        </div>
+    </body>
+
+</html>
